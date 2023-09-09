@@ -1,27 +1,11 @@
 # Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+Nombre: Jorge Valero Martín
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Preguntas:
+  - El objeto que devuelve la Api contiene el número de página y las páginas totales con esos datos ya puedes mandar al back la página que quieres cargar y controlar que si es la última no aparezca el botón para seguir cargando.
+  - const filtered = films.filter(vote_average => vote_average > 6); es una de las opciones más comunes. Pero este tipo de filtros es más óptimo hacerlo en la query a base de datos.
+Librerías:
+  - Sólo he usado ng-lazyload-image para la carga de imágenes de forma perezosa.
+Documentación:
+  -La estructura de archivos está pensada para manejar sesiones de usuarios, se han creado todas las carpetas y archivos de la parte de auth pero no se ha llegado a implementar en la parte cliente. Por otro lado la parte del dashboard tiene la carpta de components con componentes reutilizables como el navbar y las cards, el layout del dashboard y los servicios que requiere para poblar de datos la página.
