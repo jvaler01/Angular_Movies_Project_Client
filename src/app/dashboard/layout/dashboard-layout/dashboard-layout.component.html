@@ -13,7 +13,7 @@
     </section>
     
     <section class="popular">
-        <app-card-container *ngFor="let item of popularData" style="max-width: 100px;" (click)="getMovieData(item.id, item)">
+        <app-card-container *ngFor="let item of popularData" class="card_container" (click)="getMovieData(item.id, item)">
             <app-card>
               <app-card-body>
                 <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ item.poster_path"/>
@@ -22,15 +22,22 @@
             <app-card-out-text>{{ item.title }}</app-card-out-text>
         </app-card-container>
     </section>
-    
+    <hr>
     <section class="detail">
-      <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ creditsData.movieData.poster_path"/>
-      <div>{{ creditsData.movieData.title }}</div>
-      <div>{{ creditsData.movieData.original_title }}</div>
-      <div>{{ creditsData.movieData.overview }}</div>
-      <div>
+      <div class="detail_header">
+        <div>
+          <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ creditsData.movieData.poster_path"/>
+        </div>
+        <div>
+          <div>{{ creditsData.movieData.title }}</div>
+          <div>{{ creditsData.movieData.original_title }}</div>
+        </div>
+      </div>
+      <div class="detail_overview">{{ creditsData.movieData.overview }}</div>
+      <div class="cast_container">
         <div *ngFor="let cast of creditsData.credits.cast">
-          <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ cast.profile_path"/>
+          <img *ngIf="cast.profile_path" class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ cast.profile_path"/>
+          <img *ngIf="!cast.profile_path" class="card_img" [src]="'https://placehold.co/100x150'"/>
           <div>{{ cast.name }}</div>
           <div>{{ cast.character }}</div>
         </div>
