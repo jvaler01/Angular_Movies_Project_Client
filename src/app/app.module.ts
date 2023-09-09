@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CardModule } from './dashboard/components/cardComponent/card.module';
 
 @NgModule({
   declarations: [

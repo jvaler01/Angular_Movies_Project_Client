@@ -1,1 +1,40 @@
-<p>dashboard-layout works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <section class="now_playing">
+      <div class="slide_container">
+        <app-card-container *ngFor="let item of popularData">
+          <app-card>
+            <app-card-body>
+              <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ item.poster_path"/>
+            </app-card-body>
+          </app-card>
+        </app-card-container>
+      </div>
+    </section>
+    
+    <section class="popular">
+        <app-card-container *ngFor="let item of popularData" style="max-width: 100px;" (click)="getMovieData(item.id, item)">
+            <app-card>
+              <app-card-body>
+                <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ item.poster_path"/>
+              </app-card-body>
+            </app-card>
+            <app-card-out-text>{{ item.title }}</app-card-out-text>
+        </app-card-container>
+    </section>
+    
+    <section class="detail">
+      <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ creditsData.movieData.poster_path"/>
+      <div>{{ creditsData.movieData.title }}</div>
+      <div>{{ creditsData.movieData.original_title }}</div>
+      <div>{{ creditsData.movieData.overview }}</div>
+      <div>
+        <div *ngFor="let cast of creditsData.credits.cast">
+          <img class="card_img" [src]="'https://image.tmdb.org/t/p/w500'+ cast.profile_path"/>
+          <div>{{ cast.name }}</div>
+          <div>{{ cast.character }}</div>
+        </div>
+      </div>
+    </section>
+    
+</div>
