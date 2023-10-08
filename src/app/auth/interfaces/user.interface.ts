@@ -6,3 +6,8 @@ export interface User {
     password: string,
     bornDate: Date
 }
+
+export interface LoginUser {
+    email: string,
+    password: string
+}
