@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { ServiceService } from '../../services/service.service';
+import { CardOutTextComponent } from '../../components/cardComponent/card-out-text/card-out-text.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { CardBodyComponent } from '../../components/cardComponent/card-body/card-body.component';
+import { CardComponent } from '../../components/cardComponent/card/card.component';
+import { CardContainerComponent } from '../../components/cardComponent/card-container/card-container.component';
+import { NgFor, NgIf } from '@angular/common';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
-  selector: 'app-dashboard-layout',
-  templateUrl: './dashboard-layout.component.html',
-  styleUrls: ['./dashboard-layout.component.sass']
+    selector: 'app-dashboard-layout',
+    templateUrl: './dashboard-layout.component.html',
+    styleUrls: ['./dashboard-layout.component.sass'],
+    standalone: true,
+    imports: [NavBarComponent, NgFor, CardContainerComponent, CardComponent, CardBodyComponent, LazyLoadImageModule, CardOutTextComponent, NgIf]
 })
 export class DashboardLayoutComponent {
   nowPlayingData: any = [];

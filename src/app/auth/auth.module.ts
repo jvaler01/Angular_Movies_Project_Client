@@ -8,15 +8,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
-    declarations:[
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        AuthRoutingModule,
         AuthLayoutComponent,
         LoginPageComponent,
         RegisterPageComponent
-    ],
-    imports:[
-        CommonModule,
-        ReactiveFormsModule,
-        AuthRoutingModule
     ]
 })
 export class AuthMogule {}
