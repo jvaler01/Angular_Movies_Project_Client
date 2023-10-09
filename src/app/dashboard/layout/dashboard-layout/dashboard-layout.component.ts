@@ -47,9 +47,16 @@ export class DashboardLayoutComponent {
 
   getMovieData(id: string, movie: any){
     this.dashboardService.getCreditsBack(id).subscribe(
-      data => {
-        this.creditsData.credits = data;
-        this.creditsData.movieData = movie;
+      {
+        next: (v) => {
+          this.creditsData.credits = v;
+          this.creditsData.movieData = movie;
+        },
+        error: (e) => {
+            console.log(e);
+        },
+        complete: () => {
+        }
       }
     );
   }
