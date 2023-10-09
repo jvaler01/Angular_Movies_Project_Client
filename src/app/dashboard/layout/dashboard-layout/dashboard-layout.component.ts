@@ -20,7 +20,7 @@ export class DashboardLayoutComponent {
   popularData: any = [];
   creditsData: any = {};
   constructor(private dashboardService: ServiceService){
-    /* this.dashboardService.getNowPlaying().subscribe(
+    this.dashboardService.getNowPlaying().subscribe(
       data => {
         this.nowPlayingData = data.results;
       }
@@ -35,17 +35,17 @@ export class DashboardLayoutComponent {
         this.creditsData.credits = data;
         this.creditsData.movieData = this.popularData[0];
       }
-    ); */
+    );
   }
 
   getMovieData(id: string, movie: any){
-    /* this.dashboardService.getCredits(id).subscribe(
+    this.dashboardService.getCredits(id).subscribe(
       data => {
         console.log(data)
         this.creditsData.credits = data;
         this.creditsData.movieData = movie;
       }
-    ); */
+    );
   }
 
 }
