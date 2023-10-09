@@ -36,7 +36,6 @@ export class LoginPageComponent {
                 console.log(e);
             },
             complete: () => {
-                console.log('complete');
             }
         })
     

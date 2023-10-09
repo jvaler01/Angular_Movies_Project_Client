@@ -34,14 +34,12 @@ export class RegisterPageComponent {
             }
             this.authService.signup(user).subscribe({
                 next: (v) => {
-                    console.log(v);
                     this.router.navigate(['/auth/login'])
                 },
                 error: (e) => {
                     console.log(e);
                 },
                 complete: () => {
-                    console.log('complete');
                 }
             })
         }

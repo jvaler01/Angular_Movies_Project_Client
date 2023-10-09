@@ -23,7 +23,7 @@
         </app-card-container>
     </section>
     <hr>
-    <section class="detail">
+    <section class="detail" *ngIf="creditsData.movieData">
       <div class="detail_header">
         <div>
           <img class="card_img" [lazyLoad]="'https://image.tmdb.org/t/p/w500'+ creditsData.movieData.poster_path"/>

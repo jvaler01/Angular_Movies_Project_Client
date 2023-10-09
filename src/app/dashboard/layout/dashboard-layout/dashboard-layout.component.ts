@@ -20,20 +20,27 @@ export class DashboardLayoutComponent {
   popularData: any = [];
   creditsData: any = {};
   constructor(private dashboardService: ServiceService){
-    this.dashboardService.getNowPlaying().subscribe(
-      data => {
-        this.nowPlayingData = data.results;
+    this.dashboardService.getNowPlayingBack().subscribe({
+        next: (v) => {
+          this.nowPlayingData = v;
+        },
+        error: (e) => {
+            console.log(e);
+        },
+        complete: () => {
+        }
       }
     );
-    this.dashboardService.getPopular().subscribe(
-      data => {
-        this.popularData = data.results;
-      }
-    );
-    this.dashboardService.getCredits('615656').subscribe(
-      data => {
-        this.creditsData.credits = data;
-        this.creditsData.movieData = this.popularData[0];
+    this.dashboardService.getPopularBack().subscribe({
+        next: (v) => {
+          this.popularData = v;
+        },
+        error: (e) => {
+            console.log(e);
+        },
+        complete: () => {
+            this.getMovieData(this.popularData[0].id, this.popularData[0]);
+        }
       }
     );
   }
@@ -41,7 +48,6 @@ export class DashboardLayoutComponent {
   getMovieData(id: string, movie: any){
     this.dashboardService.getCredits(id).subscribe(
       data => {
-        console.log(data)
         this.creditsData.credits = data;
         this.creditsData.movieData = movie;
       }
