@@ -1,20 +1,20 @@
-<p>login-page works!</p>
 <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()" id="loginform">
   <div>
     email
     <div>
-      <input type="email" placeholder="Email" formControlName="email">
+      <input class="input-form" type="email" placeholder="Email" formControlName="email">
     </div>
   </div>
   <div>
     password
     <div>
-      <input type="password" placeholder="Password" formControlName="password">
+      <input class="input-form" type="password" placeholder="Password" formControlName="password">
     </div>
   </div>
   <div>
-    <div>
+    <div class="login-btn-container">
       <button type="submit">Log In</button>
+      <button (click)="goToSignup()">Signup</button>
     </div>
   </div>
 </form>

@@ -15,32 +15,35 @@ export class RegisterPageComponent {
     constructor( private router: Router,
             private fb: FormBuilder,
             private authService: AuthService
-        ) { }
-        public signupForm = this.fb.group({
-            username: ['', Validators.required ],
-            surname: ['', Validators.required ],
-            bornDate: [new Date(), Validators.required ],
-            email: [ localStorage.getItem('email') || '' , [ Validators.required, Validators.email ] ],
-            password: ['', Validators.required ],
-        });
+    ) { }
+    public signupForm = this.fb.group({
+        username: ['', Validators.required ],
+        surname: ['', Validators.required ],
+        bornDate: [new Date(), Validators.required ],
+        email: [ localStorage.getItem('email') || '' , [ Validators.required, Validators.email ] ],
+        password: ['', Validators.required ],
+    });
 
-        signup() {
-            const user: User = {
-                username: this.signupForm.get('username')!.value || '',
-                surname: this.signupForm.get('surname')!.value || '',
-                bornDate: this.signupForm.get('bornDate')!.value || new Date(),
-                email: this.signupForm.get('email')!.value || '',
-                password: this.signupForm.get('password')!.value || ''  
-            }
-            this.authService.signup(user).subscribe({
-                next: (v) => {
-                    this.router.navigate(['/auth/login'])
-                },
-                error: (e) => {
-                    console.log(e);
-                },
-                complete: () => {
-                }
-            })
+    signup() {
+        const user: User = {
+            username: this.signupForm.get('username')!.value || '',
+            surname: this.signupForm.get('surname')!.value || '',
+            bornDate: this.signupForm.get('bornDate')!.value || new Date(),
+            email: this.signupForm.get('email')!.value || '',
+            password: this.signupForm.get('password')!.value || ''  
         }
+        this.authService.signup(user).subscribe({
+            next: (v) => {
+                this.router.navigate(['/auth/login'])
+            },
+            error: (e) => {
+                console.log(e);
+            },
+            complete: () => {
+            }
+        })
+    }
+    goToLogin(){
+        this.router.navigate(['/auth/login']);
+    }
 }

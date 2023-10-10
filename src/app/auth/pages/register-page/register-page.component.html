@@ -1,38 +1,38 @@
-<p>register-page works!</p>
-<form autocomplete="off" [formGroup]="signupForm" (ngSubmit)="signup()" id="signupForm">
+<form class="signup-btn-container" autocomplete="off" [formGroup]="signupForm" (ngSubmit)="signup()" id="signupForm">
   <div>
     username
     <div>
-      <input type="text" placeholder="User Name" formControlName="username">
+      <input class="input-form" type="text" placeholder="User Name" formControlName="username">
     </div>
   </div>
   <div>
     surname
     <div>
-      <input type="text" placeholder="Surname" formControlName="surname">
+      <input class="input-form" type="text" placeholder="Surname" formControlName="surname">
     </div>
   </div>
   <div>
     bornDate
     <div>
-      <input type="date" placeholder="born date" formControlName="bornDate">
+      <input class="input-form" type="date" placeholder="born date" formControlName="bornDate">
     </div>
   </div>
   <div>
     email
     <div>
-      <input type="email" placeholder="Email" formControlName="email">
+      <input class="input-form" type="email" placeholder="Email" formControlName="email">
     </div>
   </div>
   <div>
     password
     <div>
-      <input type="password" placeholder="Password" formControlName="password">
+      <input class="input-form" type="password" placeholder="Password" formControlName="password">
     </div>
   </div>
   <div>
-    <div>
+    <div class="signup-btn-container">
       <button type="submit">Signup</button>
+      <button (click)="goToLogin()">Login</button>
     </div>
   </div>
 </form>
