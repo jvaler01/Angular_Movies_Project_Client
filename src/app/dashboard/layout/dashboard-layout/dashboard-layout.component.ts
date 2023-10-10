@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ServiceService } from '../../services/service.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { CardOutTextComponent } from '../../components/cardComponent/card-out-text/card-out-text.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { CardBodyComponent } from '../../components/cardComponent/card-body/card-body.component';
@@ -19,7 +20,20 @@ export class DashboardLayoutComponent {
   nowPlayingData: any = [];
   popularData: any = [];
   creditsData: any = {};
-  constructor(private dashboardService: ServiceService){
+  constructor(private dashboardService: ServiceService, private authService: AuthService){
+    if (this.authService.currentUser() == null) {
+      this.authService.getUser().subscribe({
+          next: (v) => {
+            
+          },
+          error: (e) => {
+              console.log(e);
+          },
+          complete: () => {
+          }
+        }
+      )
+    }
     this.dashboardService.getNowPlayingBack().subscribe({
         next: (v) => {
           this.nowPlayingData = v;

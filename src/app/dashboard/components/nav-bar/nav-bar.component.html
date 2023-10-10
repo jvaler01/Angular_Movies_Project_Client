@@ -2,4 +2,10 @@
     <p class="nav-title">
       Movies App
     </p>
+    <p class="nav-title">
+      {{ currentUser?.email }}
+    </p>
+    <p class="nav-title" (click)="logout()">
+      Logout
+    </p>
 </nav>

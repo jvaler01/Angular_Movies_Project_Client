@@ -28,8 +28,6 @@ export class LoginPageComponent {
         }
         this.authService.login(user).subscribe({
             next: (v) => {
-                sessionStorage.setItem('token', v.token);
-                sessionStorage.setItem('email', user.email);
                 this.router.navigate(['/dashboard']);
             },
             error: (e) => {
